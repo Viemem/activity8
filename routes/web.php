@@ -15,7 +15,7 @@ use App\Http\Controllers\HeroesController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 /*
@@ -26,3 +26,12 @@ Route::get('/Heroes/create',[HeroesController::class,'create']);
 */
 
 Route::resource('Heroes',HeroesController::class);
+Auth::routes();
+
+Route::get('/home', [HeroesController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', [HeroesController::class, 'index'])->name('home');
+});
+    
+       
