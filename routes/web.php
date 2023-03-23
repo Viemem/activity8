@@ -30,8 +30,8 @@ Auth::routes();
 
 Route::get('/home', [HeroesController::class, 'index'])->name('home');
 
-Route::middleware('auth')->group(function () {
+Route::prefix('auth')->group(function () {
     Route::get('/', [HeroesController::class, 'index'])->name('home');
 });
     
-       
+
