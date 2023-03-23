@@ -1,6 +1,8 @@
-Mostrar la lista de heroes con sus datos.
+@extends('layouts.app')
+@section('content')
+<div class="container">
 
-<a href="{{ url('Heroes/create') }}"> Registrar nuevo heroe</a>
+<a href="{{ url('Heroes/create') }}" class="btn btn-primary" > Crear nuevo heroe</a>
 
 <table class="table table-light">
     <thead class="thead-light">
@@ -30,15 +32,15 @@ Mostrar la lista de heroes con sus datos.
                 <td>{{$Heroes->Vestimenta}}</td>
                 <td>
                     
-                <a href="{{ url('/Heroes/'.$Heroes->id.'/edit') }}">
+                <a href="{{ url('/Heroes/'.$Heroes->id.'/edit') }}" class="btn btn-dark">
                 Editar
                 </a>
                  | 
 
-                <form action="{{ url('/Heroes/'.$Heroes->id ) }}" method="post">
+                <form action="{{ url('/Heroes/'.$Heroes->id ) }}" class="d-inline" method="post">
                 @csrf 
                 {{ method_field('DELETE') }}
-                <input type="submit" onclick="return confirm('¿Deseas borrar la informacion?')" 
+                <input class="btn btn-danger" type="submit" onclick="return confirm('¿Deseas borrar la informacion?')" 
                 value="Borrar">
 
                 </form>
@@ -53,3 +55,5 @@ Mostrar la lista de heroes con sus datos.
     </tbody>
 
 </table>
+</div>
+@endsection

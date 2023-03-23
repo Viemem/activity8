@@ -1,4 +1,7 @@
-Formulario para la creación de SuperHeroes.
+@extends('layouts.app')
+@section('content')
+<div class="container">
+
 <form action="{{ url('/Heroes') }}" method="post" enctype="multipar/form-data">
 @csrf
 @include('Heroes.form');
@@ -7,3 +10,5 @@ Formulario para la creación de SuperHeroes.
 
 
 </form>
+</div>
+@endsection
